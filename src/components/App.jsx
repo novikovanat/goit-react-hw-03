@@ -1,18 +1,17 @@
 import { useState } from "react";
-import ContactForm from "./contactForm"
-import SearchBox from "./searchBox"
-import ContactList from "./contactList"
-
+import ContactForm from "./contactForm";
+import SearchBox from "./searchBox";
+import ContactList from "./contactList";
 
 const App = () => {
   return (
     <div>
-  <h1>Phonebook</h1>
-  <ContactForm />
-  <SearchBox />
-  <ContactList />
-</div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <SearchBox />
+      <ContactList />
+    </div>
   );
 };
 
-export default App
+export default App;
