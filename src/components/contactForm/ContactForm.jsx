@@ -22,5 +22,5 @@ export default function LoginForm  ({ onLogin })  {
         <button type="submit">Login</button>
       </form>
     );
-  };
+  }
   
