@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Form from "./form/Form";
+
 const App = () => {
   const [values, setValues] = useState({
     login: "",
