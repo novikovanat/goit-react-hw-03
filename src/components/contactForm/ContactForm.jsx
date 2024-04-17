@@ -17,8 +17,8 @@ export default function LoginForm  ({ onLogin })  {
   
     return (
       <form onSubmit={handleSubmit}>
-        <input type="text" name="login" />
-        <input type="password" name="password" />
+        <input type="text" name="name" />
+        <input type="text" name="surname" />
         <button type="submit">Login</button>
       </form>
     );
