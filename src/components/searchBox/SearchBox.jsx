@@ -1,8 +1,8 @@
-export default function SearchBox() {
+export default function SearchBox({ value, onSearch }) {
   return (
     <label>
       Find contacts by name
-      <input name="search"></input>
+      <input name="search" value={value} onInput={(event)=>onSearch(event.target.value)}></input>
     </label>
   );
 }
