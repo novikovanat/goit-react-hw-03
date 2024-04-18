@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"
 import ContactForm from "./contactForm/ContactForm";
 import SearchBox from "./searchBox/SearchBox";
 import ContactList from "./contactList/ContactList";
@@ -9,12 +9,8 @@ const App = () => {
 
   const shownContacts = testData.filter(
     (contact) =>
-      contact.name
-        .toLocaleLowerCase()
-        .includes(searchFilter.toLocaleLowerCase()) ||
-      contact.surname
-        .toLocaleLowerCase()
-        .includes(searchFilter.toLocaleLowerCase())
+      contact.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      contact.surname.toLowerCase().includes(searchFilter.toLowerCase())
   );
 
   return (
