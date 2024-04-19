@@ -14,9 +14,9 @@ const App = () => {
 
 
 
-  function handleSubmit(initialValues, actions) {
-    initialValues.id = nanoid(5)
-    console.log(JSON.stringify(initialValues));
+  function handleSubmit(newContact, actions) {
+    newContact.id = nanoid(5)
+    console.log(JSON.stringify(newContact));
     actions.resetForm();
   }
   return (
