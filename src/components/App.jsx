@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { nanoid } from 'nanoid'
 import ContactForm from "./contactForm/ContactForm";
 import SearchBox from "./searchBox/SearchBox";
 import ContactList from "./contactList/ContactList";
@@ -11,8 +12,12 @@ const App = () => {
     contact.name.toLowerCase().includes(searchFilter.toLowerCase())
   );
 
-  function handleSubmit(initialValues) {
+
+
+  function handleSubmit(initialValues, actions) {
+    initialValues.id = nanoid(5)
     console.log(JSON.stringify(initialValues));
+    actions.resetForm();
   }
   return (
     <div>
