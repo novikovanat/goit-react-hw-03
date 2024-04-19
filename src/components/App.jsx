@@ -15,16 +15,23 @@ const App = () => {
   );
 
   function handleSubmit(newContact, actions) {
-    newContact.id = nanoid(15);
+    newContact.id = nanoid(6);
     setUserContacts((allContacts) => [...allContacts, newContact]);
     actions.resetForm();
   }
+
+  function handleDelete(contactId) {
+    setUserContacts((allContacts) => {
+      return allContacts.filter((contact) => contact.id !== contactId);
+    });
+  }
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm handleSubmit={handleSubmit} />
       <SearchBox value={searchFilter} onSearch={setSearchFilter} />
-      <ContactList contacts={shownContacts} />
+      <ContactList contacts={shownContacts} onDelete={handleDelete} />
     </div>
   );
 };
