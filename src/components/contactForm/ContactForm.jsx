@@ -1,7 +1,7 @@
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form} from "formik";
 import { useId } from "react";
 
-export default function LoginForm({ initialValues, handleSubmit }) {
+export default function LoginForm({ handleSubmit }) {
   const nameFieldId = useId();
   const numberFieldId = useId();
   return (
