@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm initialValues={testData} handleSubmit={handleSubmit} />
+      <ContactForm handleSubmit={handleSubmit} />
       <SearchBox value={searchFilter} onSearch={setSearchFilter} />
       <ContactList contacts={shownContacts} />
     </div>
