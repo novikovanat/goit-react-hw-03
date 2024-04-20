@@ -1,6 +1,8 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
+import css from "./ContactForm.module.css";
+
 export default function LoginForm({ handleSubmit }) {
   const nameFieldId = useId();
   const numberFieldId = useId();
@@ -8,10 +10,10 @@ export default function LoginForm({ handleSubmit }) {
     name: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
-      .required("Name is required"),
+      .required("Name is required!"),
     phoneNumber: Yup.string()
-      .matches(/^[1-9]\d{1,14}$/, "Invalid phone number")
-      .required("Phone number is required"),
+      .matches(/^[1-9]\d{1,14}$/, "Invalid phone number!")
+      .required("Phone number is required!"),
   });
   return (
     <div>
@@ -24,18 +26,24 @@ export default function LoginForm({ handleSubmit }) {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
-          <div>
+        <Form className={css.form}>
+          <div className={css.flex}>
             <label htmlFor={nameFieldId}>Name</label>
             <Field id={nameFieldId} name="name" />
-            <ErrorMessage name="name" component="span" />
+            <ErrorMessage className={css.color} name="name" component="span" />
           </div>
-          <div>
+          <div className={css.flex}>
             <label htmlFor={numberFieldId}>Phone number</label>
             <Field id={numberFieldId} name="phoneNumber" />
-            <ErrorMessage name="phoneNumber" component="span" />
+            <ErrorMessage
+              className={css.color}
+              name="phoneNumber"
+              component="span"
+            />
           </div>
-          <button type="submit">Add contact</button>
+          <button className={css.button} type="submit">
+            Add contact
+          </button>
         </Form>
       </Formik>
     </div>
