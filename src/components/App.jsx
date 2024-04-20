@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 import ContactForm from "./contactForm/ContactForm";
@@ -8,7 +8,19 @@ import testData from "./testData.json";
 
 const App = () => {
   const [searchFilter, setSearchFilter] = useState("");
-  const [userContacts, setUserContacts] = useState(testData);
+  const [userContacts, setUserContacts] = useState(() => {
+    const contacts = window.localStorage.getItem("contacts");
+
+    if (contacts !== null) {
+      return JSON.parse(contacts);
+    }
+
+    return testData;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("contacts", JSON.stringify(userContacts));
+  }, [userContacts]);
 
   const shownContacts = userContacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchFilter.toLowerCase())
@@ -21,8 +33,8 @@ const App = () => {
   }
 
   function handleDelete(contactId) {
-    setUserContacts((allContacts) => {
-      return allContacts.filter((contact) => contact.id !== contactId);
+    setUserContacts((shownContacts) => {
+      return shownContacts.filter((contact) => contact.id !== contactId);
     });
   }
 

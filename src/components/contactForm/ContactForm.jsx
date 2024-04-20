@@ -8,7 +8,7 @@ export default function LoginForm({ handleSubmit }) {
     name: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
-      .required("Required"),
+      .required("Name is required"),
     phoneNumber: Yup.string()
       .matches(/^[1-9]\d{1,14}$/, "Invalid phone number")
       .required("Phone number is required"),
