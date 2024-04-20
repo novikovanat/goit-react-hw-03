@@ -9,12 +9,12 @@ export default function LoginForm({ handleSubmit }) {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too Short!")
-      .max(50, "Too Long!")
+      .max(18, "Too Long!")
       .required("Name is required!"),
     phoneNumber: Yup.string()
       .matches(/^[1-9]\d{1,14}$/, "Invalid phone number!")
       .required("Phone number is required!"),
-  });
+  })
   return (
     <div>
       <Formik
