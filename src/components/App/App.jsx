@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
-import ContactForm from "./contactForm/ContactForm";
-import SearchBox from "./searchBox/SearchBox";
-import ContactList from "./contactList/ContactList";
-import testData from "./testData.json";
+import ContactForm from "../contactForm/ContactForm";
+import SearchBox from "../searchBox/SearchBox";
+import ContactList from "../contactList/ContactList";
+import testData from "../testData.json";
+import css from "./App.module.css";
 
 const App = () => {
   const [searchFilter, setSearchFilter] = useState("");
@@ -39,7 +40,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm handleSubmit={handleSubmit} />
       <SearchBox value={searchFilter} onSearch={setSearchFilter} />

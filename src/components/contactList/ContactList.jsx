@@ -1,4 +1,5 @@
 import Contact from "../contact/Contact";
+import css from "./ContactList.module.css"
 
 export default function ContactList({ contacts, onDelete }) {
   const contactList = contacts.map(({ name, phoneNumber, id }) => (
@@ -10,5 +11,5 @@ export default function ContactList({ contacts, onDelete }) {
       onDelete={onDelete}
     />
   ));
-  return <ul>{contactList}</ul>;
+  return <ul className={css.list}>{contactList}</ul>;
 }
